@@ -20,6 +20,8 @@ let col = {
 let rectWidth;
 let button;
 let dim;
+let keyIndex = -1;
+
 
 function setup() {
   let cnv = createCanvas(400, 400);
@@ -84,21 +86,23 @@ function draw() {
 
 function drawGradient() {
   let radius = dim / 2;
-  let h = random(0, 360);
-  let x = offset + cos(angle) * scalar;
-  let y = offset + sin(angle) * scalar;
-  for (let r = radius; r > 0; --r) {
-    fill(h, 90, 90);
-    ellipse(x, y, r, r);
-    h = (h + 1) % 360;
+  if (key >= 'a' && key <= 'z') {
+    keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
+    let h = notes[keyIndex] * 4;
+    let x = offset + cos(angle) * scalar;
+    let y = offset + sin(angle) * scalar;
+    for (let r = radius; r > 0; --r) {
+      fill(h, 90, 90);
+      ellipse(x, y, r, r);
+      h = (h + 1) % 360;
+    }
+    angle += speedVal;
+    scalar += speedVal;
   }
-  angle += speedVal;
-  scalar += speedVal;
 }
 
 
 function keyPressed() {
-    let keyIndex = -1;
     if (key >= 'a' && key <= 'z') {
       keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
       osc.freq(midiToFreq(notes[keyIndex])); 

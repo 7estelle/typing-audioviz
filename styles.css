@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'misegar-regular';
+  src: url('/assets/fonts/misegar.light.woff2') format('woff2'),
+      url('assets/fonts/misegar.light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html, body {
     height: 100%;
   }
@@ -8,4 +17,21 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: 'misegar-regular', sans-serif;
+    font-size: 1.5rem;
+    color: #ebece6;
+    background-color: rgb(28, 28, 28);
   }
+
+button {
+  font-family: 'misegar-regular', sans-serif;
+  font-size: 1.5rem;
+  padding: 1rem 1.5rem;
+  margin: 1rem;
+  background-color: #4343b4;
+  border: none;
+  border-radius: 2rem;
+  color: #ebece6;
+}
+
+  
