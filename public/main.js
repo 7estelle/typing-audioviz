@@ -18,7 +18,8 @@ let col = {
 };
 
 let rectWidth;
-let button;
+let saveButton;
+let resetButton;
 let dim;
 let keyIndex = -1;
 
@@ -47,12 +48,26 @@ function setup() {
   frameRate(1);
 
 //   SAVE BUTTON
-  button = createButton('Save Canvas');
-  button.mousePressed(savePalette);
+  saveButton = createButton('Save Canvas');
+  saveButton.parent('buttons')
+  saveButton.mousePressed(savePalette);
+
+  // RESET BUTTON
+  resetButton = createButton('Reset Canvas');
+  resetButton.parent('buttons')
+  resetButton.mousePressed(resetPalette);
 }
 
 function savePalette() {
     saveCanvas('myCanvas', 'png');
+}
+
+function resetPalette() {
+  background(0);
+  angle = 20;
+  offset = 200;
+  scalar = 35;
+  speedVal = 10;
 }
 
 
@@ -108,12 +123,7 @@ function keyPressed() {
       osc.freq(midiToFreq(notes[keyIndex])); 
     }
     if (keyIndex === -1) {
-      // If it's not a letter key, clear the screen
-      background(230);
-      angle = 20;
-      offset = 200;
-      scalar = 35;
-      speedVal = 10;
+      resetPalette()
     } else {
         for (let x = 0; x <= width; x += dim) {
           drawGradient(x, height / 2);

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'misegar-regular';
-  src: url('/assets/fonts/misegar.light.woff2') format('woff2'),
+  src: url('assets/fonts/misegar.light.woff2') format('woff2'),
       url('assets/fonts/misegar.light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
@@ -25,13 +25,24 @@ html, body {
 
 button {
   font-family: 'misegar-regular', sans-serif;
-  font-size: 1.5rem;
-  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
   margin: 1rem;
   background-color: #4343b4;
   border: none;
   border-radius: 2rem;
   color: #ebece6;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #ebece6;
+  color: #4343b4;
+}
+
+#buttons{
+  display: flex;
 }
 
   
