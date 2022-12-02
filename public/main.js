@@ -104,8 +104,8 @@ function drawGradient() {
   if (key >= 'a' && key <= 'z') {
     keyIndex = key.charCodeAt(0) - 'a'.charCodeAt(0);
     let h = notes[keyIndex] * 4;
-    let x = offset + cos(angle) * scalar;
-    let y = offset + sin(angle) * scalar;
+    let x = offset + cos(angle) * scalar * 0.25;
+    let y = offset + sin(angle) * scalar * 0.25;
     for (let r = radius; r > 0; --r) {
       fill(h, 90, 90);
       ellipse(x, y, r, r);
